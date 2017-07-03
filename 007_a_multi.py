@@ -15,10 +15,10 @@ async def fetch(pid):
 
 async def asynchronous():
     tasks = [
-        asyncio.ensure_future(fetch(i))
+        fetch(i)
         for i in range(10)
     ]
-    await asyncio.wait(tasks)
+    await asyncio.gather(*tasks)
 
 print('Asynchronous:')
 ioloop = uvloop.new_event_loop()
