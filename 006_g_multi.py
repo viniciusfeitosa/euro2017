@@ -5,7 +5,7 @@ gevent.monkey.patch_socket()
 
 
 def fetch(pid):
-    response = requests.get('http://localhost:8080')
+    response = requests.get('http://localhost:5001')
     result = response.json()
     name = result['name']
     consulted_at = result['consulted_at']

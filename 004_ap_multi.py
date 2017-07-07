@@ -1,6 +1,6 @@
 import asyncio
 import time
-import uvloop
+# import uvloop
 
 from concurrent.futures import ProcessPoolExecutor
 
@@ -23,9 +23,9 @@ async def asynchronous(loop):
 
 
 print('Asynchronous:')
-loop = uvloop.new_event_loop()
-asyncio.set_event_loop(loop)
-# loop = asyncio.get_event_loop()
+# loop = uvloop.new_event_loop()
+# asyncio.set_event_loop(loop)
+loop = asyncio.get_event_loop()
 loop.set_default_executor(ProcessPoolExecutor())
 start = time.time()
 loop.run_until_complete(asynchronous(loop))
