@@ -12,8 +12,7 @@ def fetch(pid):
     print('Process %s: %s, %s' % (pid, name, consulted_at))
 
 
-async def asynchronous():
-    loop = asyncio.get_event_loop()
+async def asynchronous(loop):
     tasks = [
         loop.run_in_executor(None, fetch, i)
         for i in range(10)
