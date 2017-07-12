@@ -3,3 +3,4 @@ uvloop
 flask
 gevent
 requests
+aiohttp
