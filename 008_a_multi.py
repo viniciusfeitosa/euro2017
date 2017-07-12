@@ -7,15 +7,15 @@ import requests
 def fetch(pid):
     response = requests.get('http://localhost:5001')
     result = response.json()
-    name = result['name']
-    consulted_at = result['consulted_at']
+    name = result['Name']
+    consulted_at = result['ConsultedAt']
     print('Process %s: %s, %s' % (pid, name, consulted_at))
 
 
 async def asynchronous(loop):
     tasks = [
         loop.run_in_executor(None, fetch, i)
-        for i in range(10)
+        for i in range(1, 11)
     ]
     [await task for task in tasks]
 

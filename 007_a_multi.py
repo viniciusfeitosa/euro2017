@@ -8,15 +8,15 @@ async def fetch(pid):
     async with aiohttp.ClientSession() as session:
         async with session.get('http://localhost:5001') as resp:
             result = await resp.json()
-            name = result['name']
-            consulted_at = result['consulted_at']
+            name = result['Name']
+            consulted_at = result['ConsultedAt']
             print('Process %s: %s, %s' % (pid, name, consulted_at))
 
 
 async def asynchronous():
     tasks = [
         fetch(i)
-        for i in range(10)
+        for i in range(1, 11)
     ]
     await asyncio.gather(*tasks)
 
